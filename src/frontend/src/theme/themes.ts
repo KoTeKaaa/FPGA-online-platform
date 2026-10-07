@@ -8,8 +8,8 @@ export const customLightTheme: Theme = {
   colorNeutralForeground1: lightPalette.textMain,
   colorNeutralForeground2: lightPalette.textMuted,
   colorBrandBackground: lightPalette.primaryGreen,
-  colorBrandBackgroundHover: '#00732F',
-  colorBrandBackgroundPressed: '#005C25',
+  colorBrandBackgroundHover: lightPalette.primaryGreenHover,
+  colorBrandBackgroundPressed: lightPalette.primaryGreenPressed,
 };
 
 export const customDarkTheme: Theme = {
@@ -19,6 +19,6 @@ export const customDarkTheme: Theme = {
   colorNeutralForeground1: darkPalette.textMain,
   colorNeutralForeground2: darkPalette.textMuted,
   colorBrandBackground: darkPalette.primaryGreen,
-  colorBrandBackgroundHover: '#0F823F',
-  colorBrandBackgroundPressed: '#0D6D34',
+  colorBrandBackgroundHover: darkPalette.primaryGreenHover,
+  colorBrandBackgroundPressed: darkPalette.primaryGreenPressed,
 };

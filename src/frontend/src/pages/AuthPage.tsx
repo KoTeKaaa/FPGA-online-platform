@@ -28,10 +28,14 @@ const useStyles = makeStyles({
     gap: '20px',
   },
   tpuButton: {
-    backgroundColor: '#008C3A',
+    backgroundColor: tokens.colorBrandBackground,
     color: '#FFFFFF',
     ':hover': {
-      backgroundColor: '#00732F',
+      backgroundColor: tokens.colorBrandBackgroundHover,
+      color: '#FFFFFF',
+    },
+    ':hover:active': {
+      backgroundColor: tokens.colorBrandBackgroundPressed,
       color: '#FFFFFF',
     },
   },
@@ -45,7 +49,7 @@ export const AuthPage: React.FC = () => {
   };
 
   return (
-    <div className={styles.pageLayout}>
+    <main className={styles.pageLayout}>
       <Card className={styles.card}>
         <CardHeader
           header={
@@ -64,6 +68,6 @@ export const AuthPage: React.FC = () => {
           Войти с помощью TPU ID
         </Button>
       </Card>
-    </div>
+    </main>
   );
 };
