@@ -1,0 +1,26 @@
+SHELL := /bin/bash
+.DEFAULT_GOAL := all
+CC ?= cc
+CFLAGS := -std=c11 -Wall -Wextra -Wpedantic
+SHELLCHECK ?= shellcheck
+
+SHELL_FILES := bin/fpga-dispatch bin/fpga-run $(wildcard scripts/*.sh tests/*.sh)
+C_FILES := $(wildcard src/uart/*.c tests/*.c)
+
+.PHONY: all test lint syntax
+all: syntax
+	@test -x bin/fpga-dispatch && test -x bin/fpga-run
+	@echo 'Каркас готов; хостовая C-часть ещё не реализована.'
+
+syntax:
+	@for file in $(SHELL_FILES); do bash -n "$$file" || exit; done
+	@jq empty config/integration.example.json
+
+test: all
+	@bash tests/scaffold.sh
+	@bash tests/pipeline-placeholder.sh
+
+lint: syntax
+	@"$(SHELLCHECK)" $(SHELL_FILES)
+	@for file in $(C_FILES); do $(CC) $(CPPFLAGS) $(CFLAGS) -fsyntax-only "$$file" || exit; done
+	@echo 'Lint пройден; проверка C применится после появления исходников.'

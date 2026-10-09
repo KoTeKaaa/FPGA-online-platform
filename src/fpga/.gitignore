@@ -1,0 +1,10 @@
+# Генерируемые файлы интеграции с ПЛИС
+/build/
+/incoming/
+/runs/
+/quartus/db/
+/quartus/incremental_db/
+/quartus/output_files/
+/config/*.local.json
+.env.*
+!.env.example
