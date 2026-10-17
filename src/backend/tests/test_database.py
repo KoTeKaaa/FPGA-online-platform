@@ -54,7 +54,10 @@ def test_unknown_role_is_rejected(database_engine, role):
 
 
 def test_database_health_with_real_connection(database_engine):
-    settings = Settings(_env_file=None, database_url=str(database_engine.url))
+    settings = Settings(
+        _env_file=None,
+        database_url=database_engine.url.render_as_string(hide_password=False),
+    )
     application = create_app(settings)
 
     def override_db():
