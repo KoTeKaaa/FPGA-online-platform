@@ -8,6 +8,19 @@
 .venv
 venv
 
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Local settings
+.env.*
+!.env.example
+
 # Зависимости
 node_modules/
 .pnpm-store/
